@@ -8,7 +8,7 @@ void print_list(struct node * current){
     printf("%d, ", (*current).val);
     current = (*current).next;
   }
-  printf("%d]", (*current).val);
+  printf("%d]\n", (*current).val);
 }
 
 struct node * insert_front(struct node * front, int new_val){
@@ -30,5 +30,17 @@ struct node * free_list(struct node * front){
 
 
 int main(){
+  struct node * start = (struct node *)malloc(sizeof(struct node));
+  (*start).val = 12345;
+  (*start).next = 0;
+  print_list(start);
+  int i = 10;
+  for(; i > 0; i--){
+    start = insert_front(start, i);
+  }
+  print_list(start);
+  start = free_list(start);
+  //print_list(start);
 
+  return 0;
 }
