@@ -18,6 +18,15 @@ struct node * insert_front(struct node * front, int new_val){
   return new_front;
 }
 
+struct node * free_list(struct node * front){
+  if(front){
+    free_list((*front).next);
+    free(front);
+  }else{
+    return front;
+  }
+}
+
 
 
 int main(){
