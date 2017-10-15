@@ -11,6 +11,13 @@ void print_list(struct node * current){
   printf("%d]", (*current).val);
 }
 
+struct node * insert_front(struct node * front, int new_val){
+  struct node * new_front = (struct node *)malloc(sizeof(struct node));
+  (*new_front).val = new_val;
+  (*new_front).next = front;
+  return new_front;
+}
+
 
 
 int main(){
