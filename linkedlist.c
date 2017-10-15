@@ -33,14 +33,16 @@ int main(){
   struct node * start = (struct node *)malloc(sizeof(struct node));
   (*start).val = 12345;
   (*start).next = 0;
+  printf("made first node:\n\t");
   print_list(start);
   int i = 10;
   for(; i > 0; i--){
     start = insert_front(start, i);
   }
+  printf("inserted 10 nodes in front:\n\t");
   print_list(start);
   start = free_list(start);
-  //print_list(start);
+  //print_list(start); //Segmentation fault
 
   return 0;
 }
